@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@500&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Default Elements */
+
+body {
+    background-color: #fff851;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+/* ================================================================= */
+/* ================================================================= */
+/* ================================================================= */
+/* ================================================================= */
+
+
+
+
+
+
+
+
+
+/* Header Specific */
+
+
+div.startDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+div.endDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.profile-bg {
+    border-radius: 30px;
+}
+
+.profile-bg:hover {
+    cursor: pointer;
+}
+
+.username {
+    font-size: 15px;
+    font-family: 'itim';
+    color: black;
+}
+
+
+button.settings {
+    background-color: transparent;
+    border: none;
+    margin-right: 15px;
+}
+
+button.settings:hover {
+    cursor: pointer;
+    fill: #B6FF9C;
+}
+
+.settingPopupDiv{
+    position: fixed;
+    width: 225px;
+    height: 170px;
+    background-color: #0c1822;
+    top:50px;
+    right: 15%;
+    z-index: 1000
+}
+
+.settingItem {
+    width: 100%;
+    height: 40px;
+    padding-top: 15px;
+
+    font-family: 'uni-sans.heavy-caps';
+    color: #D8D2D2;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+
+.profilePopupDiv{
+    position: fixed;
+    width: 225px;
+    height: 170px;
+    background-color: #0c1822;
+    top:50px;
+    right: 2%;
+    z-index: 1000
+}
+
+.profileItem {
+    width: 100%;
+    height: 20px;
+    padding-top: 15px; padding-left: 8px;
+
+    font-family: 'uni-sans.heavy-caps'; font-size: small;
+    color: #D8D2D2;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.profileItem:hover {
+    cursor: pointer;
+    background-color: #0a141d;
+}
+
+
+
+.hp {
+    width: 12px;
+    margin-left: 2px;
+}
+
+
+.Opponents {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    opacity: 0;
+
+    transform: scale(0);
+    transition: transform 1.2s ease-in-out;
+}
+
+.Opponents.ScaleUp {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+.pfp {
+    width: 55px;
+    height: 45px;
+}
+
+
+
+.overlay {
+    position: fixed;
+    pointer-events: none;
+
+    transition: 200ms ease-in-out;
+
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.overlay.active {
+    opacity: 0;
+    pointer-events: all;
+    z-index: 999;
+}
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
+
+
+/* Main: Ready Screen */
+
+.readyParent {
+    display: flex;
+    align-items: center;
+    height: 320px;
+}
+
+.readyBTN {
+    margin: 0 auto;
+    background-color: #49A3D6;
+    border: transparent;
+    border-radius: 12px;
+    color: white;
+    width: 200px; height:120px;
+    font-family: 'Itim';
+    font-size: 35px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.readyBTN.shrink {
+    transform: scale(0);
+}
+
+.readyBTN:hover {
+    background-color: #4968D6;
+    cursor: pointer;
+}
+
+
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
+
+
+
+/* Main: Text */
+
+
+
+.mainText {
+    margin: 0 auto;
+    color: #343CF9;
+    font-family: 'itim';
+    font-size: 35px;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+.mainText.pop {
+    transform: scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
+
+
+
+
+
+/* Section: Tools */
+
+#rock:hover {
+    transform: rotate(-15deg);
+    margin-top: -11px;
+    cursor: pointer;
+
+    transition: none!important;
+}
+
+#paper:hover {
+    transform: rotate(-15deg);
+    margin-top: -11px;
+    cursor: pointer;
+
+    transition: none!important;
+}
+
+
+#scissors:hover {
+    transform: rotate(-15deg);
+    margin-top: -11px;
+    cursor: pointer;
+
+    transition: none!important;
+}
+
+
+
+
+
+.toolsParent {
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+
+    height: 0px;
+    transition: all 1.5s ease-in-out;
+}
+
+.toolsParent.scaleSection {
+    height: 68px;
+    margin-bottom: 25px;
+    pointer-events: none;
+}
+
+.toolsParent.addOverflow {
+    overflow: visible!important;
+    pointer-events: all;
+}
+
+
+
+
+.tools {
+    margin-top: 65px;
+    width: 55px; height: 45px;
+    transform: rotate(90deg);
+    padding-left: 28px;
+    transition: all 1.5s ease-in-out;
+}
+
+.tools.normalAxis {
+    margin-top: 0px;
+    transform: rotate(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+
+.github {
+    fill: #0a141d;
+    display: flex;
+    width: 28px;
+    height: 45px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+
+    /* Header Specific */
+
+    .startDiv {
+        max-width: 80%;
+    }
+
+    .Opponents {
+        max-width: 50%;
+    }
+
+
+    /* Main: Ready Screen */
+
+    .readyBTN {
+        width: 320px; height:120px;
+        font-size: 55px;
+    }
+
+    .readyParent {
+        height: 400px;
+    }
+
+
+    /* Main: Text */
+
+    .mainText {
+        font-size: 55px;
+    }
+
+    
+
+    /* Section: Tools */
+
+    .toolsParent.scaleSection {
+        margin-bottom: 30px;
+    }
+     
+    .tools {
+        width: 80px; height: 66px;        
+    }
+    
+}
