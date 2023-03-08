@@ -1,2 +1,2 @@
 # rockpaperscissors
-A rock paper scissors static website
+A rock paper scissors static website (wip)
