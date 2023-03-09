@@ -1,3 +1,5 @@
+// This file loads the starter animations and renders the main game UI
+
 const readyParent = document.querySelector('.readyParent');
 const btn = document.querySelector('.readyBTN');
 const chooseYourTool = document.createElement('span');
@@ -8,6 +10,8 @@ const paperIMG = document.createElement('img');
 const scissorsIMG = document.createElement('img');
 
 const opp = document.querySelector('.Opponents');
+
+const gameJS = document.createElement('script');
 
 
 btn.addEventListener('click', () => {
@@ -74,6 +78,13 @@ btn.addEventListener('click', () => {
         readyParent.removeChild(btn);
         readyParent.appendChild(chooseYourTool);
     }, 800);
+
+
+
+
+    //Game Import
+    gameJS.src = "code/game.js";
+    document.body.appendChild(gameJS);
 
 
 });

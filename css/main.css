@@ -161,6 +161,52 @@ button.settings:hover {
 }
 
 
+.tool-bubble {
+    position: relative;
+    width: 57px;
+    height: 25px;
+    margin-left: 5px;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    color: black;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+.tool-bubble::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    height: 30px;
+    width: 40px;
+    background-color: inherit;
+    clip-path: polygon(0 0, 11% 30%, 24% 31%);
+    margin-top: -34px;
+}
+
+
+.tool-bubble.ScaleUp {
+    transform: scale(1);
+}
+
+
+.tool-bubbleTXT {
+    color: #4968D6;
+    font-family: 'itim';
+    font-size: x-small;
+    font-weight: 700;
+}
+
+
+.tool-bubble.opp::before {
+    clip-path: polygon(100% 0.75%, 84.75% 31%, 97.38% 32.06%)!important;
+}
+
+
+
+
 
 .overlay {
     position: fixed;
@@ -236,6 +282,7 @@ button.settings:hover {
     color: #343CF9;
     font-family: 'itim';
     font-size: 35px;
+    text-align: center;
     transform: scale(0);
     transition: transform 0.5s ease-in-out;
 }
@@ -272,6 +319,7 @@ button.settings:hover {
     transition: none!important;
 }
 
+
 #paper:hover {
     transform: rotate(-15deg);
     margin-top: -11px;
@@ -291,6 +339,11 @@ button.settings:hover {
 
 
 
+.clickedTool {
+    opacity: 0.44;
+}
+
+
 
 
 .toolsParent {
@@ -300,7 +353,7 @@ button.settings:hover {
     overflow: hidden;
 
     height: 0px;
-    transition: all 1.5s ease-in-out;
+    transition: height 1.5s ease-in-out, margin-bottom 1.5s ease-in-out;
 }
 
 .toolsParent.scaleSection {
