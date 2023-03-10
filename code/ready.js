@@ -23,6 +23,8 @@ btn.addEventListener('click', () => {
 
     // - Tools -
     ToolSection.classList.add('toolsParent');
+    ToolSection.classList.add('animateTool');
+
     document.querySelector('main').appendChild(ToolSection);
     ToolSection.appendChild(rockIMG);
     ToolSection.appendChild(paperIMG);
@@ -39,6 +41,10 @@ btn.addEventListener('click', () => {
     rockIMG.classList.add('tools');
     paperIMG.classList.add('tools');
     scissorsIMG.classList.add('tools');
+
+    rockIMG.classList.add('animateTool');
+    paperIMG.classList.add('animateTool');
+    scissorsIMG.classList.add('animateTool');
     
 
     setTimeout(() => {
@@ -58,6 +64,10 @@ btn.addEventListener('click', () => {
 
         setTimeout(() => {
             ToolSection.classList.add('addOverflow');
+            rockIMG.classList.remove('animateTool');
+            paperIMG.classList.remove('animateTool');
+            scissorsIMG.classList.remove('animateTool');
+            
         }, 2300);
 
     }, 800);

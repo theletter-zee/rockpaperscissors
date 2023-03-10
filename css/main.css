@@ -343,6 +343,9 @@ button.settings:hover {
     opacity: 0.44;
 }
 
+.animateTool {
+    transition: all 1.5s ease-in-out;
+}
 
 
 
@@ -353,7 +356,6 @@ button.settings:hover {
     overflow: hidden;
 
     height: 0px;
-    transition: height 1.5s ease-in-out, margin-bottom 1.5s ease-in-out;
 }
 
 .toolsParent.scaleSection {
@@ -375,7 +377,7 @@ button.settings:hover {
     width: 55px; height: 45px;
     transform: rotate(90deg);
     padding-left: 28px;
-    transition: all 1.5s ease-in-out;
+    /*transition: all 1.5s ease-in-out;*/
 }
 
 .tools.normalAxis {
