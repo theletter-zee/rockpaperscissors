@@ -68,7 +68,7 @@ btn.addEventListener('click', () => {
             paperIMG.classList.remove('animateTool');
             scissorsIMG.classList.remove('animateTool');
             
-        }, 2300);
+        }, 2800);
 
     }, 800);
     
