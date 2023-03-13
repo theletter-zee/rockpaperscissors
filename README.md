@@ -15,7 +15,7 @@ Basic Rules:
 
 # Gameplay
 
-<img src="https://i.imgur.com/wXtzVEE.mp4" title="gameplay"/>
+<img src="https://im3.ezgif.com/tmp/ezgif-3-288b1ec5ea.gif" title="gameplay"/>
 
 
 
