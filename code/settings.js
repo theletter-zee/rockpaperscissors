@@ -1,5 +1,5 @@
 const mVolume = localStorage.getItem('musicVolume') || 0.3;
-const music = new Audio('assets/sound/zeldaBgMusic.mp3');
+const music = new Audio('./assets/sound/zeldaBgMusic.mp3');
 music.loop = true;
 music.volume = mVolume;
 

@@ -13,7 +13,7 @@ Basic Rules:
 **Paper > Rock** 
 
 
-# Gameplay
+# Visual
 
 <img src="https://im3.ezgif.com/tmp/ezgif-3-288b1ec5ea.gif" title="gameplay"/>
 

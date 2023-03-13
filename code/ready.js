@@ -15,7 +15,7 @@ const gameJS = document.createElement('script');
 
 
 // SFX
-const popSFX = new Audio('assets/sound/pop.mp3');
+const popSFX = new Audio('./assets/sound/pop.mp3');
 
 
 btn.addEventListener('click', () => {
@@ -112,16 +112,16 @@ btn.addEventListener('click', () => {
 
 // SFX
 
-const rockSFX = new Audio('assets/sound/Stone Slide.mp3');
-const paperSFX = new Audio('assets/sound/paperSFX.wav');
-const scissorsSFX = new Audio('assets/sound/KnifeSFX.mp3');
+const rockSFX = new Audio('./assets/sound/Stone Slide.mp3');
+const paperSFX = new Audio('./assets/sound/paperSFX.wav');
+const scissorsSFX = new Audio('./assets/sound/KnifeSFX.mp3');
 
-const yaySFX = new Audio('assets/sound/yay.mp3');
-const splatSFX = new Audio('assets/sound/splat.mp3');
-const rightSFX = new Audio('assets/sound/rightSFX.mp3');
-const wrongSFX = new Audio('assets/sound/wrongSFX.mp3');
-const failSFX = new Audio('assets/sound/fail.mp3');
-const pop2 = new Audio('assets/sound/pop2.mp3');
+const yaySFX = new Audio('./assets/sound/yay.mp3');
+const splatSFX = new Audio('./assets/sound/splat.mp3');
+const rightSFX = new Audio('./assets/sound/rightSFX.mp3');
+const wrongSFX = new Audio('./assets/sound/wrongSFX.mp3');
+const failSFX = new Audio('./assets/sound/fail.mp3');
+const pop2 = new Audio('./assets/sound/pop2.mp3');
 
 rockIMG.addEventListener('mouseover', () => {
     rockSFX.play();
