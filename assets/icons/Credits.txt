@@ -1,5 +1,0 @@
-paper: https://www.flaticon.com/free-icons/paper Flaticon
-rock: https://openclipart.org/detail/209758/harvestable-resources-rock
-scissors: https://www.flaticon.com/free-icons/scissors Flaticon
-logo: https://www.flaticon.com/free-icons/rock-paper-scissors  Flaticon
-userPFP: https://www.pngall.com/profile-png/download/51531

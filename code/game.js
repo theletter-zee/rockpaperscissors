@@ -1,6 +1,5 @@
 // This file contains the main game functionality
 
-// - Fix glitchy tools when focused (overflow & stuck)
 // - Add Settings (SFX, Music vol)
 // - SFX & maybe music
 
@@ -35,10 +34,11 @@ function playAgain() {
 
 const loseTXT = ["Ouch!", "Yikes.", "Oops..."];
 const winTXT = ["Nice!", "Wowww!!", "Good one!"]; 
-const rndIndex = Math.floor(Math.random() * 3); // Put this in a function when done testing
 const animatedWords = document.createElement('div');
 
 function textAnimation(state) {
+    const rndIndex = Math.floor(Math.random() * 3);
+
     readyParent.removeChild(chooseYourTool);
     readyParent.appendChild(animatedWords);
 
@@ -130,11 +130,13 @@ function replayButton() {
     }, 1000);
 
     replayBTN.addEventListener('click', () => {
+        popSFX.play();
         playAgain();
     });
 }
 
 
+const confetti_script = document.createElement('script');
 
 function matchResult(result) {
     if(result) {
@@ -147,18 +149,27 @@ function matchResult(result) {
             finalMatchDisplay.classList.add('mainText');
             setTimeout(() => {
                 finalMatchDisplay.classList.add('pop');
+                yaySFX.play();
             },800);
 
             finalMatchDisplay.innerText = "You Won!! 🥳 🎉";
 
             readyParent.innerHTML = "";
             readyParent.appendChild(finalMatchDisplay);
-            
             replayButton();
+
+            confetti_script.src = "code/confetti.js";
+            document.body.appendChild(confetti_script);
+
+            setTimeout(() => {
+                document.body.removeChild(confetti_script);
+                document.getElementById('confetti-canvas').remove();
+            },10000);
 
 
         }
         else {
+            rightSFX.play();
             textAnimation(result)
             nextRound();
 
@@ -183,6 +194,7 @@ function matchResult(result) {
             finalMatchDisplay.classList.add('mainText');
             setTimeout(() => {
                 finalMatchDisplay.classList.add('pop');
+                failSFX.play();
             },800);
 
             finalMatchDisplay.innerText = "You Lost... 😔";
@@ -193,6 +205,7 @@ function matchResult(result) {
 
         }
         else {
+            wrongSFX.play();
             textAnimation(result)
             nextRound();
 
@@ -219,7 +232,8 @@ const toolBubbleTXTOpp = document.createElement('span');
 const botToolChoices = ["ROCK", "PAPER", "SCISSORS"];
 
 function botTurn(){
-    const botChoice = botToolChoices[rndIndex];
+    const rnd = Math.floor(Math.random() * 3);
+    const botChoice = botToolChoices[rnd];
 
     toolBubbleOpp.style.marginLeft = "-15px"
     toolBubbleOpp.classList.add('tool-bubble');
@@ -235,10 +249,8 @@ function botTurn(){
     bubbleOpp.appendChild(toolBubbleTXTOpp);
     toolBubbleOpp.appendChild(toolBubbleTXTOpp);
 
-    return botChoice;
+    return `${botChoice}`;
 }
-
-
 
 
 
@@ -308,37 +320,36 @@ for(let i = 0; i < tools.length; i++) {
 
         chooseYourTool.innerText = "Waiting for your opponent...";
 
-
         setTimeout(() => {
+            const botChoiceFunc = botTurn();
             // Add Dictionary If statement later (if possible/necessary)
-            if(userChoice == "ROCK" && botTurn() == "SCISSORS") {
+            if(userChoice == "ROCK" && botChoiceFunc == "SCISSORS") {
                 matchResult(true);
             }
-            else if(userChoice == "ROCK" && botTurn() == "PAPER") {
+            else if(userChoice == "ROCK" && botChoiceFunc == "PAPER") {
                 matchResult(false);
             }
-            else if(userChoice == "PAPER" && botTurn() == "ROCK") {
+            else if(userChoice == "PAPER" && botChoiceFunc == "ROCK") {
                 matchResult(true);
             }
-            else if(userChoice == "PAPER" && botTurn() == "SCISSORS") {
+            else if(userChoice == "PAPER" && botChoiceFunc == "SCISSORS") {
                 matchResult(false);
             }
-            else if(userChoice == "SCISSORS" && botTurn() == "PAPER") {
+            else if(userChoice == "SCISSORS" && botChoiceFunc == "PAPER") {
                 matchResult(true);
             }
-            else if(userChoice == "SCISSORS" && botTurn() == "ROCK") {
+            else if(userChoice == "SCISSORS" && botChoiceFunc == "ROCK") {
                 matchResult(false);
             }
             else {
                 chooseYourTool.innerText = "Tie 😶";
+                splatSFX.play();
                 nextRound();
             }
         }, 3000);
     });
 
 }
-
-
 
 
 

@@ -1,7 +1,16 @@
+const mVolume = localStorage.getItem('musicVolume') || 0.3;
+const music = new Audio('assets/sound/zeldaBgMusic.mp3');
+music.loop = true;
+music.volume = mVolume;
+
 const settings = document.querySelector('.settings');
 const settingsDivPopup = document.createElement('div');
 let settingsDivPopup_Bool = false;
 
+const settingItem = document.createElement('div');
+const titleSpan = document.createElement('span');
+const inputSliderParent = document.createElement('input');
+const resultSpan = document.createElement('span');
 
 settings.addEventListener('click', () => {
 
@@ -14,41 +23,35 @@ settings.addEventListener('click', () => {
     }
 
     settingsDivPopup_Bool = true;
-
-
-
     settingsDivPopup.classList.add('settingPopupDiv');
-    
-    settingsDivPopup.innerHTML =
-    `
-    <div class="settingItem">
-        <span>Music</span>
-        <input id='musicSlider' type="range" min="0" max="100"/>
-        <span id='musicVolText'></span>
-    </div>
-    <div class="settingItem">
-        <span>SFX</span>
-        <input id='sfxSlider' type="range" min="0" max="100"/>
-        <span id='sfxVolText'></span>
-    </div>
-    `;
     document.body.appendChild(settingsDivPopup);
-    //document.querySelector('.overlay').classList.add('active')
+
+    
+    titleSpan.innerText = "Music";
+    inputSliderParent.id = "musicSlider";
+    inputSliderParent.type = "range";
+    inputSliderParent.value = mVolume;
+    inputSliderParent.min = "0";
+    inputSliderParent.max = "1";
+    inputSliderParent.step = "0.1";
+    resultSpan.id = "musicVolText";
+
+    settingItem.classList.add('settingItem');
+
+    settingsDivPopup.appendChild(settingItem);
+    settingItem.appendChild(titleSpan);
+    settingItem.appendChild(inputSliderParent);
+    settingItem.appendChild(resultSpan);
 
     const slider = document.querySelector('#musicSlider');
     const musicVolText = document.querySelector('#musicVolText');
-
-    musicVolText.innerHTML = slider.value;
+    
+    musicVolText.innerHTML = mVolume || slider.value;
     slider.addEventListener('input', (event) =>{
-        musicVolText.innerHTML = event.target.value;
+        const newVolume = parseFloat(event.target.value);
+        musicVolText.innerHTML = newVolume;
+        localStorage.setItem('musicVolume', newVolume);
+        music.volume = newVolume;
     });
-
-    const sfxSlider = document.querySelector('#sfxSlider');
-    const sfxVolText = document.querySelector('#sfxVolText');
-
-    sfxVolText.innerHTML = slider.value;
-    sfxSlider.addEventListener('input', (event) =>{
-        sfxVolText.innerHTML = event.target.value;
-    });
-
+    
 });

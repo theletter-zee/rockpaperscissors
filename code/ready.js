@@ -1,4 +1,4 @@
-// This file loads the starter animations and renders the main game UI
+// This file loads the starter animations, SFX, UI and renders the main game
 
 const readyParent = document.querySelector('.readyParent');
 const btn = document.querySelector('.readyBTN');
@@ -14,7 +14,12 @@ const opp = document.querySelector('.Opponents');
 const gameJS = document.createElement('script');
 
 
+// SFX
+const popSFX = new Audio('assets/sound/pop.mp3');
+
+
 btn.addEventListener('click', () => {
+    popSFX.play();
     btn.classList.add('shrink');
 
     // Header
@@ -96,5 +101,53 @@ btn.addEventListener('click', () => {
     gameJS.src = "code/game.js";
     document.body.appendChild(gameJS);
 
+    music.play();
+
 
 });
+
+
+
+
+
+// SFX
+
+const rockSFX = new Audio('assets/sound/Stone Slide.mp3');
+const paperSFX = new Audio('assets/sound/paperSFX.wav');
+const scissorsSFX = new Audio('assets/sound/KnifeSFX.mp3');
+
+const yaySFX = new Audio('assets/sound/yay.mp3');
+const splatSFX = new Audio('assets/sound/splat.mp3');
+const rightSFX = new Audio('assets/sound/rightSFX.mp3');
+const wrongSFX = new Audio('assets/sound/wrongSFX.mp3');
+const failSFX = new Audio('assets/sound/fail.mp3');
+const pop2 = new Audio('assets/sound/pop2.mp3');
+
+rockIMG.addEventListener('mouseover', () => {
+    rockSFX.play();
+});
+
+rockIMG.addEventListener('click', () => {
+    pop2.play();
+});
+
+paperIMG.addEventListener('mouseover', () => {
+    paperSFX.play();
+});
+
+paperIMG.addEventListener('click', () => {
+    pop2.play();
+});
+
+scissorsIMG.addEventListener('mouseover', () => {
+    scissorsSFX.play();
+});
+
+scissorsIMG.addEventListener('click', () => {
+    pop2.play();
+});
+
+
+
+
+
