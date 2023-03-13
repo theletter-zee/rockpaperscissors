@@ -1,5 +1,5 @@
 # rockpaperscissors
-A rock paper scissors static website
+A rock paper scissors static website: https://theletter-zee.github.io/rockpaperscissors/
 
 
 # Overview
