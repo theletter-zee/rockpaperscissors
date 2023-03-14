@@ -1,8 +1,5 @@
 // This file contains the main game functionality
 
-// - Add Settings (SFX, Music vol)
-// - SFX & maybe music
-
 
 
 function playAgain() {
@@ -168,6 +165,7 @@ function matchResult(result) {
 
 
         }
+        // Bot Takes Damage
         else {
             rightSFX.play();
             textAnimation(result)
@@ -204,6 +202,7 @@ function matchResult(result) {
             replayButton();
 
         }
+        // Player Takes Damage
         else {
             wrongSFX.play();
             textAnimation(result)
@@ -322,29 +321,22 @@ for(let i = 0; i < tools.length; i++) {
 
         setTimeout(() => {
             const botChoiceFunc = botTurn();
-            // Add Dictionary If statement later (if possible/necessary)
-            if(userChoice == "ROCK" && botChoiceFunc == "SCISSORS") {
-                matchResult(true);
-            }
-            else if(userChoice == "ROCK" && botChoiceFunc == "PAPER") {
-                matchResult(false);
-            }
-            else if(userChoice == "PAPER" && botChoiceFunc == "ROCK") {
-                matchResult(true);
-            }
-            else if(userChoice == "PAPER" && botChoiceFunc == "SCISSORS") {
-                matchResult(false);
-            }
-            else if(userChoice == "SCISSORS" && botChoiceFunc == "PAPER") {
-                matchResult(true);
-            }
-            else if(userChoice == "SCISSORS" && botChoiceFunc == "ROCK") {
-                matchResult(false);
-            }
-            else {
+
+            if(userChoice == botChoiceFunc){
                 chooseYourTool.innerText = "Tie 😶";
                 splatSFX.play();
                 nextRound();
+            }
+            // User wins
+            else if((userChoice == "ROCK" && botChoiceFunc == "SCISSORS") ||
+                    (userChoice == "PAPER" && botChoiceFunc == "ROCK") ||
+                    (userChoice == "SCISSORS" && botChoiceFunc == "PAPER")){
+
+                matchResult(true);
+            }
+            // User loses
+            else {
+                matchResult(false);
             }
         }, 3000);
     });
