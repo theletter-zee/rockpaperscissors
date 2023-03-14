@@ -1,7 +1,16 @@
-const mVolume = localStorage.getItem('musicVolume') || 0.3;
+
+// Music Setup
+const storedVolume = localStorage.getItem('musicVolume')
+const defaultVolume = 0.3;
+
+const isValidVolume = /^0(\.\d+)?|1(\.0*)?$/.test(storedVolume);
+const mVolume = isValidVolume ? parseFloat(storedVolume) : defaultVolume;
+
 const music = new Audio('./assets/sound/zeldaBgMusic.mp3');
 music.loop = true;
 music.volume = mVolume;
+
+
 
 const settings = document.querySelector('.settings');
 const settingsDivPopup = document.createElement('div');
