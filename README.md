@@ -15,7 +15,7 @@ Basic Rules:
 
 # Visual
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-288b1ec5ea.gif" title="gameplay"/>
+<img src="https://i.imgur.com/0O56Dip.gif" title="gameplay"/>
 
 
 
